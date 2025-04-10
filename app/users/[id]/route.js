@@ -2,7 +2,7 @@ import { users } from "../route"; // Make sure this import path is correct
 
 export async function GET(request, { params }) { // No 'await' for 'params'
     const { id } = await params;
-    const user = users.find((user) => user.id === parseInt(id));
+    const user = users.find((user) => user.id === id);
     
     if (!user) {
         return new Response(JSON.stringify({ error: "User not found" }), { status: 404 });
